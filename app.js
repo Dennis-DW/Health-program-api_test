@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import clientRoutes from './routes/clients.js';
 import programRoutes from './routes/programs.js';
-import connectToDb from './database/mongodb.js';
+import connectToDb from './config/mongodb.js';
 
 const app = express();
 
@@ -24,7 +24,7 @@ mongoose.connect(process.env.MONGO_URI)
   });
 
   const PORT = process.env.PORT || 5000;
-  
+
   app.listen(PORT, async () => {
     console.log(`Server running on port http://localhost:${PORT}`);
 
