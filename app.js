@@ -3,33 +3,30 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import clientRoutes from './routes/clients.js';
 import programRoutes from './routes/programs.js';
-import connectToDb from './config/mongodb.js';
-
-const app = express();
 
 dotenv.config();
 
+const app = express();
+
+// Middleware
 app.use(express.json());
+
+// Routes
 app.use('/api/clients', clientRoutes);
 app.use('/api/programs', programRoutes);
 
-mongoose.connect(process.env.MONGO_URI)
-//   , {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// })
-.then(() => {
-  app.get('/', (req, res) => {
-    res.send('Hello Welcome @Dennis_Wambua Health Program API');
-  });
-
-  const PORT = process.env.PORT || 5000;
-
-  app.listen(PORT, async () => {
-    console.log(`Server running on port http://localhost:${PORT}`);
-
-    await connectToDb();
-  });
-}).catch((err) => {
-  console.error('Database connection error:', err);
+// Root route
+app.get('/', (req, res) => {
+  res.send('Hello Welcome @Dennis_Wambua Health Program API');
 });
+
+// Database connection
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => {
+    console.log('Connected to MongoDB');
+  })
+  .catch((err) => {
+    console.error('Database connection error:', err);
+  });
+
+export default app; // Export the app for testing
