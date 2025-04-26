@@ -1,13 +1,31 @@
 # Health Program API
 
 ## Overview
-The **Health Program API** is a backend system built using **Node.js (ES6)**, **Express**, and **MongoDB**. It manages client registrations, health program creation, and secure authentication using **JWT**. Admins manage health programs, while clients can enroll in them.
+The **Health Program API** is a backend system built using **Node.js (ES6)**, **Express**, and **MongoDB**. It manages **client registrations**, **health program creation**, and secure **authentication using JWT**. Admins manage health programs, while clients can enroll in them.
 
 ---
 
-## 🌐 Live API
+## 🌐 Live API  
 You can access the deployed API here:  
-🔗 **[https://health-program-api-test.onrender.com/](https://health-program-api-test.onrender.com/)**
+🔗 [https://health-program-api-test.onrender.com/](https://health-program-api-test.onrender.com/)
+
+---
+
+## 📽️ Presentation  
+📊 View the project slides here:  
+🎨 [Health Program API Presentation on Canva](https://www.canva.com/design/DAGlsRAzI84/4PRPKXdiQCJu30z09eOdfA/view?utm_content=DAGlsRAzI84&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h8f3914d3ca)
+
+---
+
+## 🎬 Demo Video  
+📹 Watch the full demo video on Loom:  
+🔗 [Watch Demo](https://www.loom.com/share/fb824eba36084e42a8e83fdb8d71887e?sid=f43384c3-2d44-4d79-84fa-6a076532a8bd)
+
+---
+
+## 📮 Postman Collection  
+🧪 Test the API easily using the shared Postman collection:  
+🔗 [Health Program API Postman Collection](https://www.postman.com/denny012/workspace/health-program-api/collection/42348136-938df3df-a56f-4221-b1e5-b6a275e2a196?action=share&creator=42348136)
 
 ---
 
@@ -25,14 +43,13 @@ You can access the deployed API here:
 
 ### 🔐 Authentication & Authorization
 - JWT-based authentication  
-- Admin-only access for specific operations (e.g., creating programs)  
+- Admin-only access for program creation  
 
 ---
 
 ## 🛠️ Technologies Used
-
 - **Backend**: Node.js (ES6 with `"type": "module"`), Express.js  
-- **Database**: MongoDB + Mongoose  
+- **Database**: MongoDB + Mongoose ODM  
 - **Authentication**: JSON Web Tokens (JWT)  
 - **Environment Config**: dotenv  
 - **Testing**: Jest + Supertest  
@@ -53,19 +70,21 @@ cd health-program-api
 npm install
 ```
 
-### 3. 🗂️ Create a `.env` file
+### 3. 🗂️ Create a `.env` file in the root directory
 ```env
 MONGO_URI=<your-mongodb-connection-string>
 JWT_SECRET=<your-secret-key>
 PORT=5000
 ```
 
-### 4. ▶️ Start the development server
+### 4. ▶️ Start the server
+
+For development:
 ```bash
 npm run dev
 ```
 
-Or for production:
+For production:
 ```bash
 npm start
 ```
@@ -95,27 +114,27 @@ npm start
 ## 🧩 Middleware
 
 ### ✅ Authentication Middleware
-- Validates JWT and attaches user details to `req.user`.  
-- Secures protected endpoints.
+- Verifies the JWT and attaches user info to `req.user`  
+- Secures protected routes
 
 ### 🛡️ Admin Middleware
-- Checks `req.user.isAdmin` flag.  
-- Restricts access to admin-only operations like creating health programs.
+- Ensures `req.user.isAdmin` is true  
+- Restricts access to admin-only operations
 
 ---
 
 ## 🧪 Testing
 
 ### 🧷 Integration Tests
-- Written using **Jest** and **Supertest**.  
-- Test major API routes and features.
+- Written with **Jest** and **Supertest**  
+- Test client registration, login, and program enrollments
 
 ### ▶️ Run all tests
 ```bash
 npm test
 ```
 
-Or watch tests continuously:
+Or in watch mode:
 ```bash
 npm run test -- --watchAll
 ```
@@ -124,5 +143,10 @@ npm run test -- --watchAll
 ```bash
 npm run test:coverage
 ```
+
+---
+
+## 📄 License  
+This project is licensed under the [MIT License](LICENSE).
 
 ---
