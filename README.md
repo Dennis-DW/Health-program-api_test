@@ -1,7 +1,13 @@
-# 🏥 Health Program API
+# Health Program API
 
-## 📘 Overview
+## Overview
 The **Health Program API** is a backend system built using **Node.js (ES6)**, **Express**, and **MongoDB**. It manages client registrations, health program creation, and secure authentication using **JWT**. Admins manage health programs, while clients can enroll in them.
+
+---
+
+## 🌐 Live API
+You can access the deployed API here:  
+🔗 **[https://health-program-api-test.onrender.com/](https://health-program-api-test.onrender.com/)**
 
 ---
 
@@ -120,4 +126,3 @@ npm run test:coverage
 ```
 
 ---
-
