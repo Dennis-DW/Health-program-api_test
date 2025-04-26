@@ -1,5 +1,5 @@
 import request from 'supertest';
-import app from '../app.js';
+import app from '../src/app.js';
 import mongoose from 'mongoose';
 
 // Setup the test environment and connect to the test database
