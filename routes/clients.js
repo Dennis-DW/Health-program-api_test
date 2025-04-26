@@ -2,6 +2,7 @@ import express from 'express';
 import { registerClient, searchClients, getClientProfile, enrollClient, loginClient } from '../controllers/clientController.js';
 import authMiddleware from '../middleware/authMiddleware.js';
 
+//  Route for client
 const router = express.Router();
 
 router.post('/', registerClient);
